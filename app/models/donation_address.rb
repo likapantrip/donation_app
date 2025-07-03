@@ -7,7 +7,7 @@ class DonationAddress
   # donationsテーブルとaddressesテーブルのバリデーション
   with_options presence: true do
     validates :price, numericality: {only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 1000000, message: 'is invalid'}
-    validates :user_id # belongs_to :userのアソシエーションによって設定されているバリデーションを新たに追加
+    validates :user_id # 「belongs_to :user」のアソシエーションによって設定されているバリデーションを新たに追加
     validates :postal_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
   end
   validates :prefecture, numericality: {other_than: 0, message: "can't be blank"}
